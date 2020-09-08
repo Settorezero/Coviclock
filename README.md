@@ -16,7 +16,11 @@ Edit eventually the `gateway` IP Address if your router uses a different IP addr
 
 If you're interested: Protezione civile uploads Data also in [JSON format](https://github.com/pcm-dpc/COVID-19/blob/master/dati-json/dpc-covid19-ita-regioni-latest.json). My code don't use this possibility.
 
-### PCBs by PCBWay
+### BOM
+
+Italian Users can buy components from Futura Elettronica. [Here is a Google Spreadsheet](https://docs.google.com/spreadsheets/d/1zUoG-tDA4SPo2noqbqC6heakgL6LpEyzh-jnsu_uR7s/edit?usp=sharing) with all links.
+
+### PCBs 
 You can support my works making Coviclock PCBs on PCBWay:   
 [![PCB from PCBWay](https://www.pcbway.com/project/img/images/frompcbway.png)](https://www.pcbway.com/project/shareproject/Coviclock___Table_clock_calendar_showing_temperature_and_coronavirus_data_for_Italian_Regions.html)
 
@@ -26,7 +30,11 @@ You must install those libraries from the Arduino Ide library manager:
 - Adafruit ILI9341 (https://github.com/adafruit/Adafruit_ILI9341) by Adafruit
 - EasyNTPClient (https://github.com/aharshac/EasyNTPClient) by Harsha Alva
 - TimeLib (https://github.com/PaulStoffregen/Time) by Michael Margolis
-- PubSub Client (https://github.com/knolleary/pubsubclient) by Nick O'Leary
+- PubSub Client (https://github.com/knolleary/pubsubclient) by Nick O'Leary - This is required only if you use the MQTT feature on the standard firmware
+
+### Source code
+
+Source code is in the Arduino Folder.
 
 ### Useful links
 - https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-examples.html#read-reply-from-the-server
