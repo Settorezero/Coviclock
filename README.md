@@ -11,7 +11,8 @@ This project reads the last CSV, uploaded for Italian Regions, and extract the l
 [Click here for more info on this project](https://www.settorezero.com/wordpress/en/coviclock-informazioni-tempo-reale-coronavirus-covid19/)  
 
 ### Settings
-Change `ssid` and `password` variables of the code to suit your router. Change aventually the `gateway` IP Address if your router uses a different IP address than 192.168.1.1. Change `csvFind` for extracting data about your your region: you must write the region in the same manner [was written in the CSV](https://github.com/pcm-dpc/COVID-19/blob/master/dati-regioni/dpc-covid19-ita-regioni-latest.csv).  
+Change `ssid` and `password` variables of the code (file secrets.h) to suit your router. In the Secrets.h there are also user/password for MQTT, leave them if you don't want to use MQTT (in this case, comment #define USE_MQTT in the coviclock.ino file). 
+Edit eventually the `gateway` IP Address if your router uses a different IP address than 192.168.1.1. Change `csvFind` for extracting data about your your region: you must write the region in the same manner [was written in the CSV](https://github.com/pcm-dpc/COVID-19/blob/master/dati-regioni/dpc-covid19-ita-regioni-latest.csv).  
 
 If you're interested: Protezione civile uploads Data also in [JSON format](https://github.com/pcm-dpc/COVID-19/blob/master/dati-json/dpc-covid19-ita-regioni-latest.json). My code don't use this possibility.
 
