@@ -11,7 +11,7 @@ Github provides data from the last 14 days (2 weeks), this watch shows aggregate
 **Clones** indicates the total clones, in brackets the number of unique users who made the clone.
 **Views** indicates the number of pages to display, in brackets the number of unique viewers.
 
-![Clock and Traffic data](../../images/clock-and-traffic.jpg)
+![Clock and Traffic data](../../media/clock-and-traffic.jpg)
 
 The traffic data are private information, to get them with the REST API you need a personal access token, at this [link](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) you can find the istruction to generate it. Chose only the all repo check for this token autorizzation, after copy the token generated and past it in the GITHUB_TOKEN define string of mysettings.hpp file.
 **Remember** that this string must be "token" + space + generated_token.
@@ -43,7 +43,7 @@ First information about project and version installed.
 After the connection status of WiFi network, the system Time update, the list of repositories from which to retrieve traffic data, and a dot for each REST API call (two for each repository).
 After the screen show data and clock.
 
-![boot](../../images/boot.jpg)
+![boot](../../media/boot.jpg)
 
 ## New Feature
 
