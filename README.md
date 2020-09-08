@@ -34,7 +34,7 @@ You must install those libraries from the Arduino Ide library manager:
 
 ### Source code
 
-Source code is in the Arduino Folder.
+Source code is in the [Arduino Folder](https://github.com/Settorezero/Coviclock/tree/master/arduino).
 
 ### Useful links
 - https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-examples.html#read-reply-from-the-server
