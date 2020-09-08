@@ -1,0 +1,9 @@
+08-09-2020
+Version 1.1
+- Normal version and MQTT version are now in the same firmware, used #define USE_MQTT for MQTT disabling
+- Added variable TempAdjust for adjusting temperature readings
+- User/Passwords for WiFi and MQTT are moved in secrets.h
+- Added Saint of the Day visualization (you can edit daily anniversaries by editing calendar.h)
+
+07-APR-2020
+Version 1.0
