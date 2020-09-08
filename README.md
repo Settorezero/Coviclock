@@ -25,6 +25,7 @@ You must install those libraries from the Arduino Ide library manager:
 - Adafruit ILI9341 (https://github.com/adafruit/Adafruit_ILI9341) by Adafruit
 - EasyNTPClient (https://github.com/aharshac/EasyNTPClient) by Harsha Alva
 - TimeLib (https://github.com/PaulStoffregen/Time) by Michael Margolis
+- PubSub Client (https://github.com/knolleary/pubsubclient) by Nick O'Leary
 
 ### Useful links
 - https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-examples.html#read-reply-from-the-server
