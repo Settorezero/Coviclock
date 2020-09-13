@@ -281,7 +281,7 @@ const char dp[366][20]={
   "San Sergio         ", // 9
   "S. Nicola Tolentino", // 10
   "S. Ramiro, Emiliano", // 11
-  "S. Tasauro, Guido  ", // 12
+  "S. nome di Maria   ", // 12
   "San Maurilio       ", // 13
   "Esalt. Santa Croce ", // 14
   "B.V.M. Addolorata  ", // 15
