@@ -43,5 +43,7 @@ Source code is in the [Arduino Folder](https://github.com/Settorezero/Coviclock/
 - http://arduino.esp8266.com/Arduino/versions/2.1.0-rc2/doc/reference.html
 - https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/station-class.html  
 
-Other pictures: https://photos.app.goo.gl/a9PWPLTzMMWV21LJ8
+### More pictures
+
+https://photos.app.goo.gl/a9PWPLTzMMWV21LJ8
 
