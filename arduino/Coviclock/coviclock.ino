@@ -55,7 +55,7 @@
 #include <TimeLib.h>          // https://github.com/PaulStoffregen/Time - no license
 #include <PubSubClient.h>     // https://github.com/knolleary/pubsubclient - distributed under MIT license
 #include "calendar.h"
-#include "secrets.h"
+#include "secret.h"
 
 // GPIOS definition as used on the Coviclock PCB
 #define BUZZER  D8
@@ -169,11 +169,14 @@ Adafruit_ILI9341 tft=Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST);
 
 // Connect to MQTT broker
 #ifdef USE_MQTT
-void mqtt_connect(void) 
+void mqtt_connect(bool debug) // debug=true => write on display 
   {
-  tft.setTextColor(ILI9341_GREEN);  
-  tft.setTextSize(1);
-  tft.println("Connecting to MQTT Broker");
+  if (debug)
+    {
+    tft.setTextColor(ILI9341_GREEN);  
+    tft.setTextSize(1);
+    tft.println("Connecting to MQTT Broker");
+    }
   // Loop until we're reconnected
   while (!MQTTClient.connected()) 
     {
@@ -188,13 +191,19 @@ void mqtt_connect(void)
         {
         Serial.print(millis());
         Serial.println(" MQTT connected");
-        tft.setTextColor(ILI9341_GREEN);  
-        tft.println("MQTT Connected");
+        if (debug)
+          {
+          tft.setTextColor(ILI9341_GREEN);  
+          tft.println("MQTT Connected");
+          }
         } 
     else 
         {
-        tft.setTextColor(ILI9341_RED);  
-        tft.println("MQTT ERROR");
+        if (debug)
+          {
+          tft.setTextColor(ILI9341_RED);  
+          tft.println("MQTT ERROR");
+          }
         Serial.print(millis());
         Serial.print(" MQTT failed, rc=");
         Serial.print(MQTTClient.state());
@@ -267,13 +276,13 @@ void WiFi_connect(bool debug)
     tft.print("IP address: ");
     tft.println(WiFi.localIP());  
     }
-   Serial.println("]");
+  Serial.println("]");
   Serial.print(millis());
   Serial.print(" WiFi connected. ");
   Serial.print("Device IP address is: ");
   Serial.println(WiFi.localIP());
   #ifdef USE_MQTT
-  mqtt_connect();
+  mqtt_connect(debug);
   #endif
   }
 
@@ -505,7 +514,7 @@ client.setFingerprint(csvHostFingerPrint);
       Serial.print("   > ");
       Serial.println(tempRow);
 
-      // given a 404 or 301 header
+      // returned 404 or 301
       if ((tempRow.indexOf("HTTP/1.1 404")>0) || (tempRow.indexOf("HTTP/1.1 301")>0))
         {
         Serial.print(millis());
@@ -678,7 +687,7 @@ void MQTT_send(void)
 // refresh display with new data obtained from CSV
 void updateDisplayData(void)
   {
-    /* csvRowField[] array:
+   /* csvRowField[] array:
    * 
    * 0 data (ex.: 2020-03-25T17:00:00)
    * 1 stato (IT)
@@ -841,14 +850,13 @@ void loop(void)
   #ifdef USE_MQTT
   else
     {
-     if (!MQTTClient.connected()) 
+     if (!MQTTClient.loop()) // returns connection status 
       {
       Serial.print(millis());
       Serial.println(" No MQTT connection");
-      mqtt_connect();
+      mqtt_connect(false);
       }
     }
-  MQTTClient.loop(); // needed by pubsubclient
   #endif
   
   // check if clock update if needed every hour
