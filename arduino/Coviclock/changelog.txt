@@ -1,3 +1,9 @@
+25-10-2020
+Version 1.1.1
+- Corrected bug for DST (row 349 was checkDST instead of checkDST())
+- Corrected some messages printed on display
+- Updated calendar.h with 'San Raffaele' on 24/10 instead of 'S. Antonio Maria'
+
 08-09-2020
 Version 1.1
 - Normal version and MQTT version are now in the same firmware, used #define USE_MQTT for MQTT disabling

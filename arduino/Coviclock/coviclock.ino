@@ -1,5 +1,5 @@
 /* 
- * Coviclock - Version 1.1
+ * Coviclock - Version 1.1.1
  * (c)2020 Giovanni Bernardo (https://www.settorezero.com)
  *  
  * This software uses open data uploaded on Github by
@@ -61,9 +61,9 @@
 #define BUZZER  D8
 #define S1      D1
 #define S2      D6
-#define TFT_CS    D2
-#define TFT_RST   D3
-#define TFT_DC    D0
+#define TFT_CS  D2
+#define TFT_RST D3
+#define TFT_DC  D0
 // other 2 pins of display are connected to the SPI hardware port and cannot be
 // specified in the library initialization:
 // MOSI => D7
@@ -85,8 +85,7 @@ float TempAdjust=-8.0;
   IPAddress dns2 (8, 8, 4, 4); // second DNS, required for easyntp with static ip
 #endif
 
-// comment if you don't use MQTT
-#define USE_MQTT
+
 #ifdef USE_MQTT
   IPAddress mqtt_server(192,168,1,101); // IP of your MQTT server
   const uint16_t mqtt_port = 1883;
@@ -347,7 +346,7 @@ bool updateTime(bool forced)
       Serial.print(" Clock successfully updated. ");
       Serial.print("t value=");
       Serial.println(t);
-      if (checkDST) 
+      if (checkDST()) // corrected bug on 1.1.1
         {
         Serial.print(millis());
         Serial.println(" We're in DST. I add an hour");
@@ -390,6 +389,7 @@ bool checkDST(void)
   // Month is March or October: we must check day
   if ((month()==3) || (month()==10))
     {
+    Serial.println("Month is March or October: we must check day");
     // Last sunday can occurr only after day 24, March and October have both 31 days:
     // if 24 is Sunday, last Sunday will occurr on 31th
     if (day()<25) // if day is <25 and we're in March, cannot be DST, but if we're in October... yes!
@@ -704,10 +704,15 @@ void updateDisplayData(void)
    * 12 nuovi_positivi (aggiunto dal 30/03/2020, era il campo no.11)
    * 13 dimessi_guariti
    * 14 deceduti
-   * 15 totale_casi
-   * 16 tamponi
-   * 17 note_it (aggiunto dal 25/03/2020)
-   * 18 note_en (aggiunto dal 25/03/2020)
+   * 15 casi_da_sospetto_diagnostico (variato dal 25/06/2020 => era: totale_casi)
+   * 16 casi_da_screening (variato dal 25/06/2020 => era: tamponi)
+   * 17 totale_casi (variato dal 25/06/2020 => era: note_it (aggiunto dal 25/03/2020))
+   * 18 tamponi (variato dal 25/06/2020 => era: note_en (aggiunto dal 25/03/2020))
+   * 19 casi_testati (aggiunto dal 25/06/2020)
+   * 20 note (aggiunto dal 25/06/2020)
+   * 
+   * Dalle note del repository si legge che i campi note dovrebbero essere 2: note_it e note_en 
+   * Ma nei CSV dal 25/06/20 c'è soltanto 'note'
    */
   Serial.print(millis());
   Serial.println(" Updating display with new data");

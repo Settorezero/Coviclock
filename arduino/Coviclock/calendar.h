@@ -325,7 +325,7 @@ const char dp[366][20]={
   "Sant' Orsola       ", // 21
   "San Donato         ", // 22
   "S. Giovanni da C.  ", // 23
-  "S. Antonio Maria   ", // 24
+  "S. Raffaele        ", // 24
   "San Crispino       ", // 25
   "San Evaristo       ", // 26
   "San Fiorenzo       ", // 27
