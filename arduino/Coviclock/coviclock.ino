@@ -134,7 +134,7 @@ const char* csvHostFingerPrint="70 94 de dd e6 c4 69 48 3a 92 70 a1 48 56 78 2d 
 #define USESECURECLIENT // comment if client is on http, uncomment if https
 #define CSV_UPDATE_HOUR 18 // CSV is usually updated first than that time (6:00PM) - don't use AM/PM format!
 #define CSV_RETRY_MINUTES 10 // if CSV is not updated at defined hour, I'll retry after those minutes
-#define CSV_nFIELDS  19 // number of CSV Fields (columns)
+#define CSV_nFIELDS  30 // number of CSV Fields (columns)
 String csvRow=""; // row containing the string found
 String csvRowField[CSV_nFIELDS]; // separate fields of the row above
 int csvDateCode=0; // day/month (DMM) of downloaded CSV update
@@ -710,6 +710,15 @@ void updateDisplayData(void)
    * 18 tamponi (variato dal 25/06/2020 => era: note_en (aggiunto dal 25/03/2020))
    * 19 casi_testati (aggiunto dal 25/06/2020)
    * 20 note (aggiunto dal 25/06/2020)
+   * 21 ingressi_terapia_intensiva (aggiunto dal 09/12/20)
+   * 22 note_test (aggiunto dal 09/12/20)
+   * 23 note_casi (aggiunto dal 09/12/20)
+   * 24 totale_test_positivi_test_molecolare (aggiunto dal 18/01/21)
+   * 25 totale_positivi_test_antigenico_rapido (aggiunto dal 18/01/21)
+   * 26 tamponi_test_molecolare (aggiunto dal 18/01/21)
+   * 27 tamponi_test_antigenico_rapido (aggiunto dal 18/01/21)
+   * 28 codice_nuts_1	(aggiunto dal 18/01/21)
+   * 29 codice_nuts_2 (aggiunto dal 18/01/21)
    * 
    * Dalle note del repository si legge che i campi note dovrebbero essere 2: note_it e note_en 
    * Ma nei CSV dal 25/06/20 c'è soltanto 'note'
@@ -722,39 +731,39 @@ void updateDisplayData(void)
   tft.setTextColor(ILI9341_WHITE);  
   tft.setTextSize(3);
   tft.println("CoviClock");
-  tft.println(csvFind); // print region
+  tft.println(csvFind); // denominazione_regione
 
   tft.setTextSize(2);
   tft.println();
   tft.setTextColor(ILI9341_YELLOW);  
   tft.print("Nuovi contagi: ");
   tft.setTextColor(ILI9341_ORANGE);  
-  tft.println(csvRowField[12]);
+  tft.println(csvRowField[12]); // nuovi_positivi
     
   tft.setTextColor(ILI9341_YELLOW);  
   tft.print("Tot. contagi: ");
   tft.setTextColor(ILI9341_PINK);  
-  tft.println(csvRowField[10]);
+  tft.println(csvRowField[10]); // totale_positivi
   
   tft.setTextColor(ILI9341_YELLOW);  
   tft.print("Morti: ");
   tft.setTextColor(ILI9341_RED);  
-  tft.println(csvRowField[14]);
+  tft.println(csvRowField[14]); // deceduti
 
   tft.setTextColor(ILI9341_YELLOW);  
   tft.print("In terapia: ");
   tft.setTextColor(ILI9341_MAGENTA);  
-  tft.println(csvRowField[7]);
+  tft.println(csvRowField[7]); // terapia_intensiva
 
   tft.setTextColor(ILI9341_YELLOW);  
   tft.print("Isolati: ");
   tft.setTextColor(ILI9341_CYAN);  
-  tft.println(csvRowField[9]);
+  tft.println(csvRowField[9]); // isolamento_domiciliare
 
   tft.setTextColor(ILI9341_YELLOW);  
   tft.print("Guariti: ");
   tft.setTextColor(ILI9341_GREEN);  
-  tft.println(csvRowField[13]);
+  tft.println(csvRowField[13]); // dimessi_guariti
     
   tft.setTextSize(1);
   tft.println();
