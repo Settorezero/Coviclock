@@ -130,7 +130,7 @@ Cannot use region code since for region 'Trentino-Alto Adige' since is splitted 
 */
 // fingerprint is used only for a secure client over https. If you must download data using http, leave it blank
 // see on Github repository how to obtain a fingerprint for different website
-const char* csvHostFingerPrint="70 94 de dd e6 c4 69 48 3a 92 70 a1 48 56 78 2d 18 64 e0 b7"; // fingerprint for raw.github until 10May2022
+const char* csvHostFingerPrint="8f 0e 79 24 71 c5 a7 d2 a7 46 76 30 c1 3c b7 2a 13 b0 01 b2"; // fingerprint for raw.github until 22Mar2023
 #define USESECURECLIENT // comment if client is on http, uncomment if https
 #define CSV_UPDATE_HOUR 18 // CSV is usually updated first than that time (6:00PM) - don't use AM/PM format!
 #define CSV_RETRY_MINUTES 10 // if CSV is not updated at defined hour, I'll retry after those minutes
