@@ -43,7 +43,6 @@
  * Please read the Full License text at the following link:
  * https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
  */
- 
 #include <string.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ILI9341.h>
@@ -54,7 +53,7 @@
 #include <EasyNTPClient.h>    // https://github.com/aharshac/EasyNTPClient - distributed under MIT license
 #include <TimeLib.h>          // https://github.com/PaulStoffregen/Time - no license
 #include <PubSubClient.h>     // https://github.com/knolleary/pubsubclient - distributed under MIT license
-#include "calendar.h"
+#include "zcalendar.h" // renamed due to an Arduino BUG ('calendar' showed first than 'coviclock' in tabs and due this, Arduino don't see it)
 #include "secret.h"
 
 // GPIOS definition as used on the Coviclock PCB
